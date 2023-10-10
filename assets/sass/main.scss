@@ -1,0 +1,419 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f3f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flexbox(
+  $align: flex-start,
+  $justify: flex-start,
+  $flex-direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+}
+
+header {
+  background-color: #000;
+}
+
+.menu {
+  &-list {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  &-link {
+    display: block;
+    padding: 8px 16px;
+    color: #fff;
+
+    &:hover {
+      background-color: #cccccc;
+      color: #000;
+    }
+  }
+
+  &-item {
+    &:last-child {
+      margin-left: auto;
+    }
+  }
+}
+
+.blog {
+  &-wrapper {
+    padding: 6rem;
+    text-align: center;
+  }
+
+  &-title {
+    font-size: 5rem;
+    font-weight: bold;
+  }
+
+  &-desc {
+    & span {
+      background-color: #000;
+      color: #fff;
+      padding: 4px 4px 0;
+    }
+  }
+}
+
+.slider {
+  background: url("https://www.w3schools.com/w3images/jane.jpg") no-repeat
+    center / cover;
+  width: 100%;
+  padding-top: 70%;
+  position: relative;
+
+  &-content {
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+  }
+
+  &-title {
+    font-size: 3.6rem;
+    margin-bottom: 3rem;
+  }
+
+  &-desc {
+    font-size: 5.8rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  &-button {
+    display: block;
+    padding: 1.5rem 2rem;
+    font-size: 1.6rem;
+    color: #000;
+    background-color: #a0a0a0;
+  }
+}
+
+.post {
+  &-item {
+    padding: 1.2rem 2.4rem;
+    background-color: #fff;
+    margin-bottom: 4rem;
+  }
+
+  &-title {
+    font-size: 2.4rem;
+    text-align: center;
+    font-weight: bold;
+    margin: 1rem 0;
+  }
+
+  &-desc {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 3rem;
+
+    & span {
+      color: #a4a4a4;
+    }
+  }
+
+  &-cover {
+    margin-bottom: 3rem;
+
+    & img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-content {
+    margin-bottom: 5rem;
+
+    p {
+      font-size: 1.4rem;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &-btn-list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-button {
+    background: none;
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 5px 2rem;
+    font-weight: bold;
+    margin-top: 2rem;
+
+    &-reply {
+      background-color: #000;
+      color: #fff;
+
+      span {
+        padding: 2px 8px;
+        margin-left: 5px;
+        background-color: #fff;
+        color: #000;
+      }
+    }
+  }
+}
+
+.comment {
+  display: flex;
+  margin-bottom: 1.8rem;
+  gap: 6rem;
+  border-top: 1px solid #ccc;
+  padding-top: 2rem;
+
+  &-cover {
+    width: 10%;
+  }
+
+  &-user {
+    margin: 1rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+
+    span {
+      font-size: 1.4rem;
+      font-weight: normal;
+      color: #a0a0a0;
+    }
+  }
+}
+
+.about {
+  background-color: #000;
+  margin-bottom: 3rem;
+
+  &-cover {
+    img {
+      filter: grayscale(75%);
+    }
+  }
+
+  &-content {
+    padding: 2rem;
+    color: #fff;
+  }
+
+  &-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+
+  &-desc {
+    font-size: 1.5rem;
+    text-align: justify;
+  }
+}
+
+.base-heading {
+  padding: 2rem 1rem;
+  background-color: #000;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.post-sub {
+  &-item {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    background-color: #fff;
+
+    &:hover {
+      background-color: #cccccc;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #ccc;
+    }
+
+    &:last-child {
+      .post-sub-cover {
+        img {
+          filter: sepia(75%);
+        }
+      }
+    }
+  }
+
+  &-cover {
+    width: 12%;
+  }
+
+  &-title {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
+  &-desc {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}
+
+.advertise {
+  &-content {
+    padding: 1.5rem;
+    background-color: #fff;
+
+    &-wrapper {
+      width: 430px;
+      height: 200px;
+      background-color: #f1f1f1;
+      text-align: center;
+      line-height: 200px;
+    }
+  }
+}
+
+.tag {
+  &-list {
+    padding: 1.5rem;
+    gap: 1rem;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-item {
+    padding: 3px 8px;
+    background-color: #f1f1f1;
+    font-size: 1.3rem;
+
+    &.active {
+      background-color: #000;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.inspiration {
+  & > div {
+    background-color: #fff;
+  }
+}
+
+.follow {
+  &-list {
+    padding: 1.5rem;
+    background-color: #fff;
+    display: flex;
+    gap: 1rem;
+  }
+
+  &-item {
+    font-size: 2.4rem;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.subscribe {
+  &-content {
+    background-color: #fff;
+    padding: 1.5rem;
+  }
+
+  &-input {
+    width: 100%;
+    padding: 5px 1rem;
+    font-size: 1.4rem;
+  }
+
+  &-button {
+    margin-top: 1rem;
+    outline: none;
+    background-color: #f44336;
+    width: 100%;
+    display: block;
+    border: none;
+    padding: 1rem;  
+    color: #fff;
+
+    &:hover{
+      background-color: #ccc;
+      color: #000;
+    }
+  }
+}
+
+footer{
+  background-color: #616161;
+  padding: 4rem;
+
+  .back-btn{
+    outline: none;
+    padding: 1.5rem 3rem;
+    background-color: #000;
+    color: #fff;
+    margin-bottom: 3rem;
+
+    & i{
+      margin-right: 1rem;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+  }
+
+  
+  p{
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+}
